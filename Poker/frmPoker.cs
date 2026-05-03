@@ -336,51 +336,73 @@ namespace Poker
 
             string result = "";
 
+            int betAmount = int.Parse(this.txtBet.Text);
+            int get = 0;
+
             if (isRoyalisFlush)
             {
                 result = $"{colorList[0]} 同花大順";
+                get = betAmount * 250;
             }
             else if (isStraightFlush)
             {
                 result = $"{colorList[0]} 同花順";
+                get = betAmount * 50;
+
             }
             else if (isStraight)
             {
                 result = "順子";
+                get = betAmount * 4;
+
             }
             else if (isFourOfAKind)
             {
-                result = $"{pointList[0]} 鐵支";
+                result = $"{pointList[0]} 鐵支"; //四條?
+                get = betAmount * 25;
+
             }
             else if (isFullHouse)
             {
                 result = $"{pointList[0]}三張{pointList[1]}兩張 葫蘆";
+                get = betAmount * 9;
+
             }
             else if (isFlush)
             {
                 result = $"{colorList[0]} 同花";
+                get = betAmount * 6;
+
             }
             else if (isThreeOfAKind)
             {
                 result = $"{pointList[0]} 三條";
+                get = betAmount * 3;
+
             }
             else if (isTwoPair)
             {
                 result = $"{pointList[0]},{pointList[1]} 兩對";
+                get = betAmount * 2;
+
             }
             else if (isOnePair)
             {
                 result = $"{pointList[0]} 一對";
+                get = betAmount;
+
             }
             else
             {
                 result = "雜牌";
             }
+
+            this.lblTotal.Text = (int.Parse(this.lblTotal.Text) + get).ToString();
             lblResult.Text = result;
             btnChangeCard.Enabled = false;
             btnCheck.Enabled = false;
 
-            btnDealCard.Enabled = true;
+            btnBet.Enabled = true;
         }
 
         /// <summary>
@@ -390,7 +412,7 @@ namespace Poker
         /// <param name="e"></param>
         private void frmPoker_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (this.btnDealCard.Enabled == false)
+            if (this.btnDealCard.Enabled == false && this.btnBet.Enabled == false)
             {
                 switch(e.KeyChar)
                 {
@@ -449,8 +471,28 @@ namespace Poker
                 this.ShowCards();
             }
         }
+
         #endregion
 
+        private void frmPoker_Load(object sender, EventArgs e)
+        {
 
+        }
+        private void btnBet_Click(object sender, EventArgs e)
+        {
+            bool isBetAmountValid = int.TryParse(this.txtBet.Text, out int betAmount);
+            
+            if (!isBetAmountValid)
+            {
+                MessageBox.Show("請輸入有效數值", "押注金額錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return;
+            }
+
+            this.lblTotal.Text = (int.Parse(this.lblTotal.Text) - betAmount).ToString();
+            this.btnBet.Enabled = false;
+            this.btnDealCard.Enabled = true;
+
+        }
     }
 }
