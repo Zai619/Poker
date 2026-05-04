@@ -41,6 +41,8 @@ namespace Poker
         #region 自定義方法
         private void InitializePoker()
         {
+            this.textBox1.Text = "q:同花大順(皇家同花順)\r\nw:同花順\r\ne:同花\r\nr:鐵支(四條)\r\nt:葫蘆\r\ny:三條\r\na:順子\r\nb:兩對\r\nc:一對";
+
             for (int i = 0; i < pic.Length; i++)
             {
                 pic[i] = new PictureBox();
@@ -335,8 +337,13 @@ namespace Poker
             bool isOnePair = (pointCount[0] == 2 && pointCount[1] == 1);
 
             string result = "";
+            bool isBetAmountValid = int.TryParse(this.txtBet.Text, out int betAmount);
+            if (!isBetAmountValid)
+            {
+                MessageBox.Show("請輸入有效押注金額", "押注金額錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-            int betAmount = int.Parse(this.txtBet.Text);
+                return;
+            }
             int get = 0;
 
             if (isRoyalisFlush)
@@ -401,6 +408,7 @@ namespace Poker
             lblResult.Text = result;
             btnChangeCard.Enabled = false;
             btnCheck.Enabled = false;
+            this.txtBet.Enabled = true;
 
             btnBet.Enabled = true;
         }
@@ -449,7 +457,7 @@ namespace Poker
                         playerPoker[3] = 37;
                         playerPoker[4] = 36;
                         break;
-                    case 't':
+                    case 't': 
                         // 葫蘆
                         playerPoker[0] = 30;
                         playerPoker[1] = 29;
@@ -465,8 +473,32 @@ namespace Poker
                         playerPoker[3] = 14;
                         playerPoker[4] = 13;
                         break;
+                    case 'a':
+                        // 順子
+                        playerPoker[0] = 0;
+                        playerPoker[1] = 5;
+                        playerPoker[2] = 8;
+                        playerPoker[3] = 15;
+                        playerPoker[4] = 17;
+                        break;
+                    case 'b':
+                        // 兩對
+                        playerPoker[0] = 0;
+                        playerPoker[1] = 1;
+                        playerPoker[2] = 14;
+                        playerPoker[3] = 15;
+                        playerPoker[4] = 51;
+                        break;
+                    case 'c':
+                        // 一對
+                        playerPoker[0] = 0;
+                        playerPoker[1] = 1;
+                        playerPoker[2] = 44;
+                        playerPoker[3] = 15;
+                        playerPoker[4] = 51;
+                        break;
                 }
-
+                
                 // 顯示五張撲克牌到桌面上
                 this.ShowCards();
             }
@@ -492,7 +524,11 @@ namespace Poker
             this.lblTotal.Text = (int.Parse(this.lblTotal.Text) - betAmount).ToString();
             this.btnBet.Enabled = false;
             this.btnDealCard.Enabled = true;
+            this.txtBet.Enabled = false;
+        }
 
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
         }
     }
 }
