@@ -27,6 +27,10 @@ namespace Poker
         /// 記錄玩家手牌的編號，從 0 到 51，對應到 52 張牌
         /// </summary>
         int[] playerPoker = new int[5];
+        List<string> cardType = new List<string>();
+        List<string> betMoney = new List<string>();
+        List<string> imcome = new List<string>();
+
 
         #endregion
 
@@ -41,7 +45,9 @@ namespace Poker
         #region 自定義方法
         private void InitializePoker()
         {
-            this.textBox1.Text = "q:同花大順(皇家同花順)\r\nw:同花順\r\ne:同花\r\nr:鐵支(四條)\r\nt:葫蘆\r\ny:三條\r\na:順子\r\nb:兩對\r\nc:一對";
+            this.textBox1.Text = "q:同花大順(皇家同花順)".PadRight(16, '.') + "250倍" + "\r\n" + "w:同花順".PadRight(37, '.') + "50倍" + "\r\n" + "e:同花".PadRight(43, '.') + "6倍" + "\r\n" + "r:鐵支(四條)".PadRight(35, '.') + "25倍" + "\r\n" + "t:葫蘆".PadRight(43, '.') + "9倍" + "\r\n" + "y:三條".PadRight(43, '.') + "3倍" + "\r\n" + "a:順子".PadRight(43, '.') + "4倍" + "\r\n" + "b:兩對".PadRight(40, '.') + "2倍" + "\r\n"+"c:一對".PadRight(43, '.') + "1倍";
+
+
 
             for (int i = 0; i < pic.Length; i++)
             {
@@ -403,7 +409,9 @@ namespace Poker
             {
                 result = "雜牌";
             }
-
+            cardType.Add(result);
+            imcome.Add(get.ToString());
+            betMoney.Add(this.txtBet.Text);
             this.lblTotal.Text = (int.Parse(this.lblTotal.Text) + get).ToString();
             lblResult.Text = result;
             btnChangeCard.Enabled = false;
@@ -529,6 +537,21 @@ namespace Poker
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
+        }
+
+        private void btnRecord_Click(object sender, EventArgs e)
+        {
+            System.Data.DataTable dt = new System.Data.DataTable();
+            dt.Columns.Add("下注金額", typeof(string));
+            dt.Columns.Add("牌型結果", typeof(string));
+            dt.Columns.Add("獲利", typeof(string));
+            for(int i = 0;i < cardType.Count; i++)
+            {
+                dt.Rows.Add(betMoney[i], cardType[i], imcome[i]);
+
+            }
+            record tableForm = new record(dt);
+            tableForm.ShowDialog();
         }
     }
 }
