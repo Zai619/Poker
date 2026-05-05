@@ -37,7 +37,7 @@
 歷史紀錄:
 我們提供了歷史紀錄查詢功能，讓你可以更了解自己賭博的狀況
 
-<img width="744" height="478" alt="image" src="https://github.com/user-attachments/assets/b1fc3936-a52f-400e-b758-af38d21649f0" />
+<img width="745" height="481" alt="image" src="https://github.com/user-attachments/assets/66f30666-6ccf-49b4-a331-6f261112e27f" />
 
 
 
