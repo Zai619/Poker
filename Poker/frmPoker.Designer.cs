@@ -50,6 +50,7 @@
             // 
             // grpPoker
             // 
+            this.grpPoker.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.grpPoker.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.grpPoker.Location = new System.Drawing.Point(16, 15);
             this.grpPoker.Margin = new System.Windows.Forms.Padding(4);
@@ -62,6 +63,7 @@
             // 
             // grpButton
             // 
+            this.grpButton.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.grpButton.Controls.Add(this.lblResult);
             this.grpButton.Controls.Add(this.btnCheck);
             this.grpButton.Controls.Add(this.btnChangeCard);
@@ -88,6 +90,7 @@
             // 
             // btnCheck
             // 
+            this.btnCheck.BackColor = System.Drawing.SystemColors.Info;
             this.btnCheck.Enabled = false;
             this.btnCheck.Location = new System.Drawing.Point(219, 30);
             this.btnCheck.Margin = new System.Windows.Forms.Padding(4);
@@ -95,11 +98,12 @@
             this.btnCheck.Size = new System.Drawing.Size(109, 45);
             this.btnCheck.TabIndex = 2;
             this.btnCheck.Text = "判斷牌型";
-            this.btnCheck.UseVisualStyleBackColor = true;
+            this.btnCheck.UseVisualStyleBackColor = false;
             this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
             // 
             // btnChangeCard
             // 
+            this.btnChangeCard.BackColor = System.Drawing.SystemColors.Info;
             this.btnChangeCard.Enabled = false;
             this.btnChangeCard.Location = new System.Drawing.Point(125, 30);
             this.btnChangeCard.Margin = new System.Windows.Forms.Padding(4);
@@ -107,11 +111,12 @@
             this.btnChangeCard.Size = new System.Drawing.Size(85, 45);
             this.btnChangeCard.TabIndex = 1;
             this.btnChangeCard.Text = "換牌";
-            this.btnChangeCard.UseVisualStyleBackColor = true;
+            this.btnChangeCard.UseVisualStyleBackColor = false;
             this.btnChangeCard.Click += new System.EventHandler(this.btnChangeCard_Click);
             // 
             // btnDealCard
             // 
+            this.btnDealCard.BackColor = System.Drawing.SystemColors.Info;
             this.btnDealCard.Enabled = false;
             this.btnDealCard.Location = new System.Drawing.Point(28, 30);
             this.btnDealCard.Margin = new System.Windows.Forms.Padding(4);
@@ -119,11 +124,12 @@
             this.btnDealCard.Size = new System.Drawing.Size(89, 45);
             this.btnDealCard.TabIndex = 0;
             this.btnDealCard.Text = "發牌";
-            this.btnDealCard.UseVisualStyleBackColor = true;
+            this.btnDealCard.UseVisualStyleBackColor = false;
             this.btnDealCard.Click += new System.EventHandler(this.btnDealCard_Click);
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.groupBox1.Controls.Add(this.lblTotal);
             this.groupBox1.Controls.Add(this.btnBet);
             this.groupBox1.Controls.Add(this.txtBet);
@@ -148,16 +154,18 @@
             // 
             // btnBet
             // 
+            this.btnBet.BackColor = System.Drawing.SystemColors.Info;
             this.btnBet.Location = new System.Drawing.Point(526, 42);
             this.btnBet.Name = "btnBet";
             this.btnBet.Size = new System.Drawing.Size(97, 36);
             this.btnBet.TabIndex = 4;
             this.btnBet.Text = "押注";
-            this.btnBet.UseVisualStyleBackColor = true;
+            this.btnBet.UseVisualStyleBackColor = false;
             this.btnBet.Click += new System.EventHandler(this.btnBet_Click);
             // 
             // txtBet
             // 
+            this.txtBet.BackColor = System.Drawing.SystemColors.Info;
             this.txtBet.Location = new System.Drawing.Point(387, 42);
             this.txtBet.Name = "txtBet";
             this.txtBet.Size = new System.Drawing.Size(98, 34);
@@ -181,6 +189,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.groupBox2.Controls.Add(this.textBox1);
             this.groupBox2.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.groupBox2.Location = new System.Drawing.Point(686, 31);
@@ -192,6 +201,7 @@
             // 
             // textBox1
             // 
+            this.textBox1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.textBox1.Location = new System.Drawing.Point(24, 48);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
@@ -202,19 +212,21 @@
             // 
             // btnRecord
             // 
+            this.btnRecord.BackColor = System.Drawing.SystemColors.Info;
             this.btnRecord.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnRecord.Location = new System.Drawing.Point(686, 369);
             this.btnRecord.Name = "btnRecord";
             this.btnRecord.Size = new System.Drawing.Size(368, 66);
             this.btnRecord.TabIndex = 4;
             this.btnRecord.Text = "歷史紀錄";
-            this.btnRecord.UseVisualStyleBackColor = true;
+            this.btnRecord.UseVisualStyleBackColor = false;
             this.btnRecord.Click += new System.EventHandler(this.btnRecord_Click);
             // 
             // frmPoker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(1096, 447);
             this.Controls.Add(this.btnRecord);
             this.Controls.Add(this.groupBox2);
